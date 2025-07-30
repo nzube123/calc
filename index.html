@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <center>
+          <section class="calc-cont">
+        <div name="text" id="text" placeholder="0"> </div>
+        <div id="answer">0</div>
+        <br>
+        <div class="button-container">
+            <!-- buttons -->
+
+            <!-- opeRATORS -->
+        <button id="button-1">Rad</button>
+        <button id="button-2">Deg</button>
+        <button id="button-3">x!</button>
+        <button id="button-4" onclick="myscript('(')">(</button>
+        <button id="button-5" onclick="myscript(')')">)</button>
+        <button id="button-6" onclick="myscript('%')">%</button>
+        <button id="button-7">AC</button>
+        <button id="button-8">Inv</button>
+        <button id="button-9" onclick="myscript('Math.sin')">sin</button>
+        <button id="button-10" onclick="myscript('Math.in')">IN</button>
+    
+        <!-- digits -->
+       <button id="button-11" onclick="myscript(7)">7</button>
+       <button id="button-12" onclick="myscript(8)">8</button>
+       <button id="button-13" onclick="myscript(9)">9</button>
+
+       <!-- operators -->
+       <button id="button-14" onclick="myscript('/')">/</button>
+       <button id="button-15" onclick="myscript(22/7)">&#8508;</button>
+       <button id="button-16" onclick="myscript('Math.cos')">cos</button>
+       <button id="button-17" onclick="myscript('Math.log')">log</button>
+
+       <!-- digits -->
+       <button id="button-18" onclick="myscript(4)">4</button>
+        <button id="button-19" onclick="myscript('5')">5</button>
+        <button id="button-20" onclick="myscript('6')">6</button>
+
+        <!-- operators -->
+        <button id="button-21" onclick="myscript('*')">&times;</button>
+        <button id="button-22" onclick="myscript('Math.e')">e</button>
+        <button id="button-23" onclick="myscript('Math.tan')">tan</button>
+        <button id="button-24"onclick="myscript('cos(')">&Sqrt;</button>
+
+        <!-- digits -->
+        <button id="button-25" onclick="myscript(1)">1</button>
+        <button id="button-26" onclick="myscript('2')">2</button>
+        <button id="button-27" onclick="myscript('3')">3</button>
+
+        <!-- operators -->
+        <button id="button-28" onclick="myscript('-')">-</button>
+        <button id="button-29">Ans</button>
+        <button id="button-30">EXP</button>
+        <button id="button-31" onclick="myscript('^')">^</button>
+        <button id="button-32" onclick="myscript(0)">0</button>
+        <button id="button-33" onclick="myscript('.')">.</button>
+        <button id="button-34">=</button>
+        <button id="button-35" onclick="myscript('+')">+</button>
+        </div>
+    <br>
+    <span class="mathsolver">Math Solver ></span>
+    <hr>
+    </section>
+    </center>
+    <script src="./script.js"></script>
+    </body>
+</html
