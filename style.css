@@ -84,12 +84,14 @@ button{
     color: whitesmoke;
     border: 1px solid black;
 }
+/* hover effect */
+
 /* Equal to  */
 .equal{
     background-color: rgb(74, 74, 206);
 }
 
 .digit{
-    background-color: rgb(32, 30, 30);
-    opacity: 0.456;
+    background-color: rgb(70, 63, 63);
+    opacity: 0.9;
 }

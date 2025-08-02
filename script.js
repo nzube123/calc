@@ -13,7 +13,8 @@ function myscript(val) {
 // the output
 var output = document.getElementById("answer");
 // The function for the equal button
-buttons[33].addEventListener("click", () => {
+const eqaulto = document.querySelector("#button-34");
+eqaulto.addEventListener("click", () => {
     output.innerHTML = eval(input_output.innerText);
 
     // creation of a lclstg for the ANS button function below
@@ -23,7 +24,8 @@ buttons[33].addEventListener("click", () => {
 })
 
 // the clear screen AC button
-buttons[6].addEventListener("click", () => {
+const clear = document.querySelector("#button-7");
+clear.addEventListener("click", () => {
     output.innerHTML = " ";
     input_output.innerHTML = " ";
 })
@@ -31,6 +33,16 @@ buttons[6].addEventListener("click", () => {
 // For the ans Button
 // creating a local storage and inputing th final value  of every job immediately the = button is clicked
 // look into the function for the equal to
-buttons[28].addEventListener("click", () => {
+const ans = document.querySelector("#button-29");
+ans.addEventListener("click", () => {
     input_output.innerHTML = localStorage.getItem("equalto");
+})
+
+
+// code to determine the next action after the equal to button is clicked
+eqaulto.addEventListener("click", () =>{
+    equalto = true;
+    if (eqaulto == true) {
+        
+    }
 })
