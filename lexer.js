@@ -2,7 +2,7 @@ for (let i = 0; i < buttons.length; i++) {
    const c = buttons[i];
    c.addEventListener("click", () => {
     const input = input_output.innerHTML;
-      const keywords = ["sin(", "cos(", "tan(", "log(", "ln(", "sqrt(", "exp("];
+      const symbol = [".", "(", ")"];
     
     // lexer and parser
     function lexer(input) {
@@ -32,78 +32,51 @@ for (let i = 0; i < buttons.length; i++) {
                 current++;
                 continue;
             }
+
+            // preventing repetition of operators
+               const lastOperator = tokens[tokens.length - 1];
+                       if (lastOperator && lastOperator.type === 'OPERATOR' && lastOperator.value === indchar) {
+                        if (indchar === '+' || indchar === '-' || indchar === '*' || indchar === '/') {
+                            // delete the last operator from the input
+                            input_output.innerHTML.slice(0, -curre);
+                            tokens.pop(); // remove the last operator token
+                            current--; // move back one character
+                            
+                           continue; 
+                        
+                       }
+               }
             
-
-            // creating a token for keywords 
-            if (/[a-zA-Z_]/.test(indchar)) {
-                let value = '';
-                while (/[a-zA-Z_]/.test(indchar)) {
-                    value += indchar;
-                    indchar = input[current++]
-                }
-
-                const type = keywords.includes(value) ? 'KEYWORD :' : 'identifier';
-                tokens.push({type, value});
+            // lexer for symbols
+            if (/[)\(./]/.test(indchar)) {
+                tokens.push({type: 'Symbol', value:indchar})
+                current++;
                 continue;
             }
+
             throw new Error(`Unexpected character: ${indchar}`);
         }
         return tokens;
         } 
         
-                // console.log(lexer(input));
-
-                // parser function
+                console.log(lexer(input));
+                
+                // parsing function
                 function parse(tokens) {
-                    let current = 0;
+                    let single = {type: "literal", value: tokens[0].value};
 
-                    function parsing() {
-                        let token = token = tokens[current];
+                    for (let i = 1; i < array.length; i+=2) {
+                        const operator = [i].value;
+                        const rightOperand = {type:'literal', value: tokens[i + 1].value};
 
-
-                        // functionality declaration (sin cos tan)
-                        if (token.type === 'keywords' && ["sin(", "cos(", "tan(", "log(", "ln(", "sqrt(", "exp("].includes(token.value)) {
-                            const correct = token.value;
-                            current++;
-
-                            const identifier = tokens[current];
-                            if (identifier.type !== 'identifier') {
-                                throw new Error("hi");
-                            }
-                            current++;
-
-
-                            const left = parsePrimary();
-                            const expression = parseBinaryExpression(left);
-
-                            return {
-                                type: 'FunctionDeclaration', kind,
-                                identifier: identifier.value,
-                                value: expression
-                            };
-                        }
+                        single = {
+                            type: "BinaryExpression",
+                            operator: operator,
+                            left: single,
+                            left: rightOperand
+                        };
                     }
-
-                    // parsing a single number
-                        function parsePrimary() {
-                            const token = tokens[current];
-
-                            if (token.type === 'Number') {
-                                current++;
-                                return {
-                                    type: 'sNumber',
-                                    value: token.value
-                                };
-                            }
-                        }
-
-
-                        // parse a complete expression
-
-                        // RETURN THE PARSER
-                        console.log(parse(tokens));
-                        
+                    return single;
                 }
-                // LOG THE PARSED OBJECT                
         })
 }

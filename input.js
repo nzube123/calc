@@ -41,3 +41,48 @@ ans.addEventListener("click", () => {
 })
 
 
+// function for the sin cos tan log e and others to perform when tapped
+const sin = document.getElementById("sin");
+const cos = document.getElementById("cos");
+const tan = document.getElementById("tan");
+const e = document.getElementById("e");
+const In = document.getElementById("in");
+const root = document.getElementById("squaret");
+
+
+ 
+
+sin.addEventListener("click", () => {
+    const degree = parseFloat(input_output.innerHTML);
+    const radians = degree * Math.PI / 180;
+    const hi = Math.sin(radians);
+        output.innerHTML = hi;
+})
+
+cos.addEventListener("click", () => {
+    const degree = parseFloat(input_output.innerHTML);
+    const radians = degree * Math.PI / 180;
+    const hi = Math.cos(radians);
+        output.innerHTML = hi;
+})
+
+tan.addEventListener("click", () => {
+    const degree = parseFloat(input_output.innerHTML);
+    const radians = degree * Math.PI / 180;
+    const hi = Math.tan(radians);
+        output.innerHTML = hi;
+})
+
+root.addEventListener("click", () => {
+    const degree = parseFloat(input_output.innerHTML);
+    const radians = degree * Math.PI / 180;
+    const hi = Math.sqrt(radians);
+        output.innerHTML = hi;
+})
+
+e.addEventListener("click", () => {
+    const degree = parseFloat(input_output.innerHTML);
+    const radians = degree * Math.PI / 180;
+    const hi = Math.exp(radians);
+        output.innerHTML = hi;
+})
